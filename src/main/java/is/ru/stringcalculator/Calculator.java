@@ -4,17 +4,17 @@ public class Calculator {
 
 	public static int add(String text)
 	{
-		if(text.equals(""))
+		if (text.equals(""))
 		{
 			return 0;
 		}
 
-		if(text.startsWith("//"))
+		if (text.startsWith("//"))
 		{
 			return sum(delimiter(text));
 		}
 
-		if(text.contains(",") || text.contains("\n"))
+		if (text.contains(",") || text.contains("\n"))
 		{
 			return sum(splitNumbers(text));
 		}
@@ -25,6 +25,22 @@ public class Calculator {
 		}
 			
 	}
+
+	private static void negative(String str)
+	{
+		String negative = "";
+
+		if (str.contains("-1")) 
+		{
+			throw new RuntimeException("Negatives not allowed: -1");	
+		}
+
+		if (negative.contains("-")) 
+		{
+			throw new RuntimeException("Negatives not allowed: " + negative);	
+		}
+	}
+
 
 	private static int toInt(String number)
 	{
@@ -46,12 +62,11 @@ public class Calculator {
     private static int sum(String[] numbers)
     {
  	    int total = 0;
-        for(String number : numbers)
+        for (String number : numbers)
        	{
        		total += toInt(number);
 		}
 
 		return total;
     }
-
 }
