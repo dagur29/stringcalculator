@@ -66,4 +66,14 @@ public class CalculatorTest {
 		}
 	}	
 
+	@Test
+    public void testBiggerThanThousand(){
+        assertEquals(2, Calculator.add("1001,2"));
+    }
+
+    @Test
+    public void testBiggerThanThousandMultipleNumbers(){
+        assertEquals(0, Calculator.add("1001,1002,1003"));
+    }   
+
 }
